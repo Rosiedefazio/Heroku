@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rosie's ML API</title>
+          <style> 
+    
+    html {
+  scroll-behavior: smooth;
+}
+body {
+        background-image: url('/static/background2.jpg');
+        background-repeat: no-repeat;
+        color: pink;
+        font-family: Georgia, serif;
+    min-width: 100%;
+    max-width: 100%;
+    overflow-x:hidden;
+    }
+    h1 {
+        text-align: center;
+        vertical-align: text-bottom;
+        text-transform: capitalize;
+        font-size: 80px;
+        color: #010402bb;
+
+    }
+ 
+    p {
+        text-align: center;
+        vertical-align: text-bottom;
+        text-decoration: none;
+        color: #374f3d;
+    }
+    .p2 {display: flex;
+        justify-content: center;
+        align-items: center;
+    max-width: 100%;}
+    i {
+        text-align: center;
+        font-size: 80px;
+        color: #01040290;
+        padding: 15px;
+    }
+
+    i:hover {color: #000000;}
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        left: middle;
+        align-items: center;
+        padding: 20px;
+        max-width: 100%;
+    }
+    .topnav {
+        overflow: hidden;
+        left: middle;
+        top: 0;
+        background-color: rgba(211, 160, 196, 0.308);
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        border-radius: 5px;
+        max-width: 100%;
+      }
+
+      a:hover {
+        border-radius: 50px;
+        color: black;
+        text-align: center;
+        background-color:  rgba(211, 160, 196, 0.308);
+
+      }
+      /* Navbar links */
+      .topnav a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      /* Links - change color on hover */
+      .topnav a:hover {
+        border-radius: 5px;
+        background-color: #ddd;
+        color: black;
+      }
+    ::-moz-selection { /* Code for Firefox */
+        color:  #ddd;
+        background: black;
+        }
+
+    ::selection {
+      color:  #ddd;
+        background: black;
+        }
+    [data-title]:after{
+    content: attr(data-title);
+    color: rgba(69, 103, 84, 0.758);
+    color: #111;
+    border-radius: 25px;
+    font-size: 10px;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6em;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid #111111;
+    z-index: 99999;
+    visibility: hidden;
+}
+    [data-title] {
+    position: relative;
+}
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+.footer {
+      position: fixed;
+      left: middle;
+      bottom: 0;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="Login"> 
+            <h1>Predict CO2 Emission for a Car</h1>
+            <form action="{{url_for('predict')}}"method ="post">
+                <input type ="text" name ="Wieght" placeholder ="Weight" required="required"/>
+                <input type ="text" name = "Volume" placeholder="Volume" required="required"/>
+                <button type="sumbit" class="btn btn-primary btn-block btn-Large">Predict</button>
+        </form>
+        <br>
+        <br> 
+        {{prediction_text}}
+        </div>
+    </body>
+</html>
